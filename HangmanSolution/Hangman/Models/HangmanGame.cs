@@ -13,7 +13,8 @@ namespace Hangman.Models
 			"Programming is like a puzzle game",
 		};
 		public static List<char> lettersGuessed = new List<char>();
-		private static char GuessedLetter { get; set; }
+		public static char GuessedLetter { get; set; }
+		public static int IncorrectGuesses { get; set; }
 
 		public static string GetSentence()
 		{
@@ -30,11 +31,11 @@ namespace Hangman.Models
 
 		private static string MakeSentence()
 		{
-			string formattedSentence = Sentence;
+			string formattedSentence = Sentence.ToUpper();
 
 			foreach (char letter in formattedSentence)
 			{
-				if (Char.IsLetter(letter) && !HasLetterBeenGuessed(letter))
+				if (Char.IsLetter(letter) && !lettersGuessed.Contains(letter))
 				{
 					formattedSentence = formattedSentence.Replace(letter.ToString(), "_ "); // Replace unguessed letters with underscores
 				}
@@ -46,18 +47,9 @@ namespace Hangman.Models
 		public static void GuessLetter(char letter)
 		{
 			GuessedLetter = Char.ToUpper(letter);
-			lettersGuessed.Add(GuessedLetter);
-		}
+			if (!lettersGuessed.Contains(GuessedLetter)) lettersGuessed.Add(GuessedLetter);
 
-		public static char GetGuessedLetter()
-		{
-			return GuessedLetter;
-		}
-
-		public static bool HasLetterBeenGuessed(char letter)
-		{
-			if (lettersGuessed.Contains(letter)) return true;
-			return false;
+			if (!Sentence.Contains(letter) && IncorrectGuesses < 6) IncorrectGuesses++;
 		}
 
 		public static void ClearAll()

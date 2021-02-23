@@ -12,19 +12,40 @@
 </head>
 
 <body>
-	<img src='~/img/0.png' />
+	<img src='~/img/@(HangmanGame.IncorrectGuesses).png' />
 	<br><br>
 	 <h3><pre>@HangmanGame.GetSentence()</pre></h3>
- <br>
- <a href="hangman/new">Guess letter!</a>
+	 <br>
+	@if (Char.IsLetter(HangmanGame.GuessedLetter))
+	{
+		<p>You guessed: @HangmanGame.GuessedLetter</p>
+		<br>
+	}
+
+	@if(HangmanGame.IncorrectGuesses > 5)
+	{
+		<p>Oh no, you lost!</p>
+		<p>The sentence was: @HangmanGame.Sentence</p>
+		<a href="hangman">Play again!</a>
+	}
+	else
+	{
+		<a href="hangman/new">Guess letter!</a>
+		<br>
+		<a href="/">Restart game</a>
+	}
+
 	<br><br>
-	<p>Gueseed letters:</p>
-	<ul>
-		@foreach (char letter in Model)
-		{
-			<li>@letter</li>
-		}
-	</ul>
+	@if(HangmanGame.lettersGuessed.Count > 0)
+	{
+		<p>Guessed letters:</p>
+		<ul>
+			@foreach (char letter in Model)
+			{
+				<li>@letter</li>
+			}
+		</ul>
+	}
 </body>
 
 </html>
