@@ -1,0 +1,30 @@
+ @using Hangman.Models;
+
+ @{
+	Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+</head>
+
+<body>
+	<img src='~/img/0.png' />
+	<br><br>
+	 <h3><pre>@HangmanGame.GetSentence()</pre></h3>
+ <br>
+ <a href="hangman/new">Guess letter!</a>
+	<br><br>
+	<p>Gueseed letters:</p>
+	<ul>
+		@foreach (char letter in Model)
+		{
+			<li>@letter</li>
+		}
+	</ul>
+</body>
+
+</html>
