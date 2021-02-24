@@ -11,6 +11,10 @@ namespace Hangman.Models
 			"Brian might be a very cool guy",
 			"Coding is immense fun",
 			"Programming is like a puzzle game",
+			"Chris really is awesome",
+			"Daniel is pretty cool too",
+			"Hollow Knight is an absolutely incredible game so far",
+			"This project was a truly a supercalifragilisticexpialidocious experience",
 		};
 		public static List<char> lettersGuessed = new List<char>();
 		public static char GuessedLetter { get; set; }
@@ -21,7 +25,7 @@ namespace Hangman.Models
 			if (string.IsNullOrEmpty(Sentence))
 			{
 				Random random = new Random();
-				int randomIndex = random.Next(0, sentencesToChooseFrom.Count - 1);
+				int randomIndex = random.Next(0, sentencesToChooseFrom.Count);
 				Sentence = sentencesToChooseFrom[randomIndex];
 			}
 
