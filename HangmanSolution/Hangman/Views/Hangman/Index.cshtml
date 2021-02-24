@@ -7,15 +7,19 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-</head>
-
 <body>
 	<img src='~/img/@(HangmanGame.IncorrectGuesses).png' />
 	<br><br>
+
 	 <h3><pre>@HangmanGame.GetSentence()</pre></h3>
 	 <br>
+
+	 <details>
+		 <summary>Reveal sentence</summary>
+		 <b>@HangmanGame.Sentence</b>
+	 </details>
+	 <br>
+
 	@if (Char.IsLetter(HangmanGame.GuessedLetter))
 	{
 		<p>You guessed: @HangmanGame.GuessedLetter</p>
@@ -34,8 +38,8 @@
 		<br>
 		<a href="/">Restart game</a>
 	}
-
 	<br><br>
+
 	@if(HangmanGame.lettersGuessed.Count > 0)
 	{
 		<p>Guessed letters:</p>
