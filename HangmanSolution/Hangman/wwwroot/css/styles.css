@@ -10,3 +10,21 @@ pre {
 	background-color: black;
 	color: white;
 }
+
+#correct {
+	color: green;
+}
+
+#incorrect {
+	color: red;
+}
+
+.win {
+	border-style: solid;
+	border-color: green;
+}
+
+.lose {
+	border-style: solid;
+	border-color: red;
+}

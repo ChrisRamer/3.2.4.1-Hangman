@@ -23,7 +23,6 @@ namespace Hangman.Models
 				Random random = new Random();
 				int randomIndex = random.Next(0, sentencesToChooseFrom.Count - 1);
 				Sentence = sentencesToChooseFrom[randomIndex];
-				Console.WriteLine("Generated sentence: " + Sentence);
 			}
 
 			return MakeSentence();
@@ -52,11 +51,17 @@ namespace Hangman.Models
 			if (!Sentence.Contains(letter) && IncorrectGuesses < 6) IncorrectGuesses++;
 		}
 
+		public static bool DoesSentenceHaveLetter(char letter)
+		{
+			return Sentence.ToLower().Contains(char.ToLower(letter));
+		}
+
 		public static void Reset()
 		{
 			Sentence = string.Empty;
 			lettersGuessed.Clear();
 			GuessedLetter = '\0';
+			IncorrectGuesses = 0;
 		}
 	}
 }
