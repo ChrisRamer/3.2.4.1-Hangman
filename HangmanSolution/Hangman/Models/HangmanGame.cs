@@ -37,7 +37,8 @@ namespace Hangman.Models
 			{
 				if (Char.IsLetter(letter) && !lettersGuessed.Contains(letter))
 				{
-					formattedSentence = formattedSentence.Replace(letter.ToString(), "_ "); // Replace unguessed letters with underscores
+					// Replace unguessed letters with underscores
+					formattedSentence = formattedSentence.Replace(letter.ToString(), "_ ");
 				}
 			}
 
@@ -48,13 +49,14 @@ namespace Hangman.Models
 		{
 			GuessedLetter = Char.ToUpper(letter);
 			if (!lettersGuessed.Contains(GuessedLetter)) lettersGuessed.Add(GuessedLetter);
-
 			if (!Sentence.Contains(letter) && IncorrectGuesses < 6) IncorrectGuesses++;
 		}
 
-		public static void ClearAll()
+		public static void Reset()
 		{
+			Sentence = string.Empty;
 			lettersGuessed.Clear();
+			GuessedLetter = '\0';
 		}
 	}
 }

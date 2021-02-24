@@ -1,0 +1,12 @@
+body {
+	background-color: rgb(36, 36, 36);
+	color: rgb(184, 184, 184);
+	text-align: center;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+pre {
+	background-color: black;
+	color: white;
+}

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Hangman.Models;
 
 namespace Hangman.Controllers
 {
@@ -7,6 +8,7 @@ namespace Hangman.Controllers
 		[HttpGet("/")]
 		public ActionResult Index()
 		{
+			HangmanGame.Reset();
 			return View();
 		}
 	}
