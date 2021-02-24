@@ -14,7 +14,8 @@ namespace Hangman.Models
 			"Chris really is awesome",
 			"Daniel is pretty cool too",
 			"Hollow Knight is an absolutely incredible game so far",
-			"This project was a truly a supercalifragilisticexpialidocious experience",
+			"A quick brown fox jumps over the lazy dog",
+			"This project was a truly a remarkably supercalifragilisticexpialidocious experience",
 		};
 		public static List<char> lettersGuessed = new List<char>();
 		public static char GuessedLetter { get; set; }

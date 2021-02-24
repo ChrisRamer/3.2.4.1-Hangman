@@ -9,6 +9,8 @@ body {
 pre {
 	background-color: black;
 	color: white;
+	width: 75%;
+	margin-left: 250px;
 }
 
 #correct {
